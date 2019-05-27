@@ -2,6 +2,7 @@
 \usepackage[margin=1in,footskip=0.25in]{geometry}
 \usepackage{pgf, tikz}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{centernot}
 \usepackage{pgfplots}
 
@@ -122,10 +123,36 @@
 		$$ \text{Power} = \frac{\text{$\Delta$ Energy}}{\text{$\Delta$ Time}} $$
 	\begin{enumerate}
 		\item There is a need for energy efficient Processors becuase of the \textbf{major issue of \emph{heat}}.
-		\item There are two main types of energy we are concerned about:
+		\item Complementary Metal Oxide Semiconductors (CMOSs):
 		\begin{enumerate}
-			\item \textbf{Dynamic Energy:} The energy consumed by the switching from 0 to 1 or from 1 to 0.
-			\item \textbf{Static Energy:} The energy consumed through current leakage
+			\item dominant technology for integrated circuits, energy consumption consists of dynamic and static energy.
+			\item \textbf{Dynamic Energy:} The energy consumed by the switching of transistors from 0 to 1 or 1 to 0, this is dependent on the capacitive loading of each transistor and the voltage applied. The \textbf{Dynamic Power} is the power required per transistor
+			\begin{enumerate}
+				\item $\text{Energy} \propto \frac{1}{2} * \text{Capacitive load} * \text{Voltage}^2$
+				\item $\text{Power} \propto \frac{1}{2} * \text{Capacitive load} * \text{Voltage}^2 * \text{Frequency switched} $
+				\item $ \therefore \text{Power} \propto \text{Energy} * \text{Frequency Switched} $
+			\end{enumerate}
+			\item \textbf{Static Energy:} energy consumed through current leakage, this is the current that flows through a transistor even when it is off (approximately 40\% of power consumption.)
+			\item \textbf{Static power:} power lost from static energy, is proportional to the number of \\ \\
 		\end{enumerate}
+	\end{enumerate} 
+
+	\noindent Techniques to Improve Energy Efficiency
+	\begin{enumerate}
+		\item Turn off the clock for inactive modules (do nothing efficiently)
+		\item Use a lower clock frequency during periods of low activity (called dynamic frequency scaling or DFS), can often allow lower voltages as well
+		\item Use a low power mode for memory and storage when not being accessed
+		\item Completely turn off power to subsets of the chip when not being used\\
 	\end{enumerate}
+
+	\noindent \textbf{Number Notation}
+	The value of a specific numer in a specified base (radix) is calculated by: 
+	$$ \sum_{i = -m}^{n - 1} \text{d}_i * \text{b}^i = \text{d}_{n - 1} * 10^{n - 1} + ... + \text{d}_{1} * 10^{1} + ... + \text{d}_{-m} * 10^{-m}$$
+	where \emph{d} is a digit and \emph{b} is the base.\\
+	\textbf{EXAMPLE}
+	$$ 425.34_{10} = \sum_{i = -2}^{3} \text{d}_i * \text{10}^i = (4 * 10^2) + (2 * 10^1) + (5 * 10^0) + (3 * 10^{-1}) + (4 * 10^{-2}) = 400 + 20 + 5 + 0.3 + 0.04$$
+	$$ 1001.01_2 = \sum_{i = -2}^{4} \text{d}_i * \text{2}^i =  (1 * 2^3) + (0 * 2 ^ 2) + (0 * 2^1) + (1 * 2^0) + (0 * 2^{-1}) + (1 * 2^{-2}) = 8 + 0 + 0 + 1 + 0 + 0.25 = 9.25 $$
+
+	\emph{Range of values:} To find the range of numbers that can be represented by a certain base with \emph{n} digits, use the formula $M^N$ where $M=$base and $N=$number of digits.\\
+	So a base 10 number with 3 decimal number values can represent $M^N = 10^3 = 1000$ numbers, the range would be $[0, 999]$. If it was base 2, then $M^N = 2^3 = 8$ or $[0, 7]$
 \end{document}
