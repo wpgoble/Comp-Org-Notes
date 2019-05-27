@@ -69,8 +69,9 @@
   		\item Datapath executes the instruction
   		\item If application does not complete, then go to step 3
 	\end{enumerate}
+	\noindent \emph{\textbf{REMEMBER:}} When executing a program, you first decode the instructions for the control, and then execute the instructions.\\
 
-	\noindent \emph{Remember: }QTSpim is \textbf{not} a compiler, it is an \textbf{assembler.}\\
+	\noindent \emph{\textbf{REMEMBER:}} QTSpim is \textbf{not} a compiler, it is an \textbf{assembler.}\\
 
 	\noindent \emph{Formulas to remember: }\\
 	\begin{center}
@@ -88,13 +89,43 @@
 		$$ \text{CPU Time} = \text{CPU Clock Cycles} * \text{CPU Clock Cycle Time} = \frac{\text{CPU Clock Cycles}}{\text{CPU clock rate}} $$
 		$$ \text{CPI} = \frac{\text{CPU Clock Cycles}}{\text{Instruction Count}} $$
 		$$ \text{CPU Time} = \text{Instruction Count} * \text{CPI} * \text{CPU Clock Cycles} $$ \\
+
+		$$ \text{Relationship between clock rate and clock speed rotation:} $$
+		$$ \text{clock rate} = \frac{1}{\text{clock speed}} $$
+		$$ \text{clock speed} = \frac{1}{\text{clock rate}} $$
+
+		$$ \text{Calculate Overall Speedup} $$
+		$$ \text{execution time}_{new} = \text{execution time}_{old} * (1 - \text{fraction}_{enhanced} + \frac{\text{fraction}_{enhanced}}{\text{speedup}_{enhanced}}$$
+		$$ \text{speedup}_{overall} = \frac{\text{execution time}_{old}}{\text{execution time}_{new}} = \frac{1}{(1 - \text{fraction}_{enhanced}) + \frac{\text{fraction}_{enhanced}}{\text{speedup}_{enhanced}}}$$
 	\end{center}
 
 	\noindent\emph{Terms to know: }
 	\begin{enumerate}
-		\item Latency (Response, or execution time): The time between the start and completion of an event or task.
-		\item Bandwidth/Throughput: The total amount of work done in a given period of time.
-		\item Clock cycles Per Instruction (CPI): Average number of clock cycles per instruction for a program or process
-		\item Amdahl's Law: The performance improvement gained from using an enhanced component is limited by the portion improved.
+		\item \textbf{Latency Response (execution time)}: The time between the start and completion of an event or task.
+		\item \textbf{Bandwidth/Throughput}: The total amount of work done in a given period of time.
+		\item \textbf{Clock cycles Per Instruction (CPI)}: Average number of clock cycles per instruction for a program or process
+		\item \textbf{Amdahl's Law}: The performance improvement gained from using an enhanced component is limited by the portion improved.
+	\end{enumerate}
+
+	\noindent \emph{\textbf{REMEMBER:}} The memory access bottleneck is caused by fast execution time and slower memory access time. To solve this we use \textbf{3 layers of cache}\\
+
+	\noindent \emph{Conversions: } \\
+	$ 1 \text{ Kib} \text{ (Kibibyte) } = 2^{10} \text{ bytes or } 1024 \text{ bytes}$ \\
+	$ 1 \text{ Kib } = 1024 \text{ bytes } = 1.024 \text{ KB} $ \\
+	\emph{For memory: } $2^n$ can store $\{0, 1, ..., 2^{n - 1}\}$ bytes. \\
+
+	\noindent \emph{Power Issues: }\\
+	\noindent \textbf{Energy} is the capacity to change an object's state. Measured in joules.\\
+	\indent One joule is equal to one Newton acting through one meter.\\
+	\noindent \textbf{Power} is the energy amount used over a period of time, units are Watts.\\
+		\indent Watts = $\frac{joules}{second}$
+		$$ \text{Power} = \frac{\text{$\Delta$ Energy}}{\text{$\Delta$ Time}} $$
+	\begin{enumerate}
+		\item There is a need for energy efficient Processors becuase of the \textbf{major issue of \emph{heat}}.
+		\item There are two main types of energy we are concerned about:
+		\begin{enumerate}
+			\item \textbf{Dynamic Energy:} The energy consumed by the switching from 0 to 1 or from 1 to 0.
+			\item \textbf{Static Energy:} The energy consumed through current leakage
+		\end{enumerate}
 	\end{enumerate}
 \end{document}
